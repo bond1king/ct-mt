@@ -6,6 +6,7 @@ import java.io.IOException;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -15,24 +16,27 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterActivity extends ActionBarActivity {
+public class RegisterActivity extends FragmentActivity implements OnClickListener {
 
-	static TextView dateOfBirth;
+	static TextView dateOfBirth,mobileNumberText;
+	private EditText mobileNumberValue;
 	static ImageView picture;
 	private Bitmap bitmap;
+	private Button submitButton;
 	static int year = 2000, month=0, day=1;
 	private static final String TEMP_PHOTO_FILE = "temporary_holder.jpg";
 
@@ -40,27 +44,52 @@ public class RegisterActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
-		dateOfBirth = (TextView) findViewById(R.id.editText2);
-		picture = (ImageView) findViewById(R.id.imageView1);
-
-		picture.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				try {
-					Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-					intent.putExtra("crop", "true");
-					intent.putExtra(MediaStore.EXTRA_OUTPUT, getTempUri());
-					intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-					startActivityForResult(
-							Intent.createChooser(intent, "Select Picture"), 1);
-				} catch (Exception e) {
-					Toast.makeText(getApplicationContext(), (CharSequence) e,
-							Toast.LENGTH_LONG).show();
-					Log.e(e.getClass().getName(), e.getMessage(), e);
-				}
-			}
-		});
+		dateOfBirth = (TextView) findViewById(R.id.dateOfBirthValue);
+		picture = (ImageView) findViewById(R.id.setProfilePicture);
+		submitButton = (Button) findViewById(R.id.submitApplication);
+		mobileNumberValue = (EditText)findViewById(R.id.mobileNumberValue);
+		picture.setOnClickListener(this);
+		submitButton.setOnClickListener(this);
+		if(getPhoneNumber()!=null){
+			mobileNumberText.setText(getPhoneNumber());
+			mobileNumberText.setVisibility(View.VISIBLE);
+			mobileNumberValue.setVisibility(View.INVISIBLE);
+		}
+		
+	}
+	
+	private String getPhoneNumber(){
+		TelephonyManager tMgr = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+		String mPhoneNumber = tMgr.getLine1Number();
+		return mPhoneNumber;
+		
+		
 	}
 
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.setProfilePicture:
+			try {
+				Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				intent.putExtra("crop", "true");
+				intent.putExtra(MediaStore.EXTRA_OUTPUT, getTempUri());
+				intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+				startActivityForResult(
+						Intent.createChooser(intent, "Select Picture"), 1);
+			} catch (Exception e) {
+				Toast.makeText(getApplicationContext(), (CharSequence) e,
+						Toast.LENGTH_LONG).show();
+				Log.e(e.getClass().getName(), e.getMessage(), e);
+			}
+			break;
+		case R.id.submitApplication:
+			Toast.makeText(this,"Application Submitted",
+					Toast.LENGTH_SHORT).show();
+			break;
+		}
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
@@ -128,11 +157,6 @@ public class RegisterActivity extends ActionBarActivity {
 		o.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(filePath, o);
 
-		// The new size we want to scale to
-		final int REQUIRED_SIZE = 100;
-
-		// Find the correct scale value. It should be the power of 2.
-		int width_tmp = o.outWidth, height_tmp = o.outHeight;
 		int scale = 1;
 		
 		// Decode with inSampleSize
@@ -172,22 +196,6 @@ public class RegisterActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_register,
-					container, false);
-			return rootView;
-		}
-	}
 
 	public void showDatePickerDialog(View v) {
 		DialogFragment newFragment = new DatePickerFragment();
@@ -206,8 +214,12 @@ public class RegisterActivity extends ActionBarActivity {
 
 		public void onDateSet(DatePicker view, int year, int month, int day) {
 			CharSequence seq = day + " - " + (month+1) + " - " + year;
+			RegisterActivity.year = year;
+			RegisterActivity.month = month;
+			RegisterActivity.day = day;
 			dateOfBirth.setText(seq);
 		}
 	}
+
 
 }
