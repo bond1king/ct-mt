@@ -2,7 +2,7 @@ package com.cleartrip.bmtc;
 
 import java.io.File;
 import java.io.IOException;
-
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -12,11 +12,12 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
@@ -30,7 +31,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterActivity extends FragmentActivity implements OnClickListener {
+@TargetApi(Build.VERSION_CODES.GINGERBREAD)
+public class RegisterActivity extends ActionBarActivity implements OnClickListener {
 
 	static TextView dateOfBirth,mobileNumberText;
 	private EditText mobileNumberValue;
@@ -50,7 +52,7 @@ public class RegisterActivity extends FragmentActivity implements OnClickListene
 		mobileNumberValue = (EditText)findViewById(R.id.mobileNumberValue);
 		picture.setOnClickListener(this);
 		submitButton.setOnClickListener(this);
-		if(getPhoneNumber()!=null){
+		if(getPhoneNumber()!=null && getPhoneNumber().isEmpty()!=true){
 			mobileNumberText.setText(getPhoneNumber());
 			mobileNumberText.setVisibility(View.VISIBLE);
 			mobileNumberValue.setVisibility(View.INVISIBLE);
