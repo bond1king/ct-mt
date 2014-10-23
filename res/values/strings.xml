@@ -17,5 +17,7 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="submit_application">Submit Application</string>
     <string name="set_photo">Set Photo</string>
+    <string name="vajra_a_c_pass">Vajra A/C pass</string>
+    <string name="parisaravahini_non_a_c_bus_pass">ParisaraVahini Non A/C bus pass</string>
 
 </resources>

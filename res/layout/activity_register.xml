@@ -10,6 +10,26 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/passType1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/vajra_a_c_pass" />
+
+            <RadioButton
+                android:id="@+id/passType2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/parisaravahini_non_a_c_bus_pass" />
+        </RadioGroup>
+
         <TextView
             android:id="@+id/setProfilePictureText"
             android:layout_width="wrap_content"
@@ -127,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/mobileNumberValue"
@@ -143,7 +163,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="@string/submit_application" />
-        
     </LinearLayout>
 
 </ScrollView>

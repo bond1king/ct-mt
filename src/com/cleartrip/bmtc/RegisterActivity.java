@@ -2,6 +2,8 @@ package com.cleartrip.bmtc;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.zip.Inflater;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -86,6 +88,10 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
 			}
 			break;
 		case R.id.submitApplication:
+			Intent intent = new Intent(this, DisplayPassActivity.class);
+			intent.putExtra("name", ((TextView)findViewById(R.id.nameValue)).getText().toString());
+			intent.putExtra("passType", "Vajra A/C bus pass");
+			startActivity(intent);
 			Toast.makeText(this,"Application Submitted",
 					Toast.LENGTH_SHORT).show();
 			break;
