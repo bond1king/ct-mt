@@ -5,28 +5,16 @@
     android:background="#fff"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/passDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <ImageView
-            android:id="@+id/cleartripLogo"
-            android:layout_width="0dp"
-            android:layout_height="75dp"
-            android:layout_weight="1.00"
-            android:contentDescription="@string/cleartrip_pvt_ltd_"
-            android:src="@drawable/cleartrip_logo" />
-
-        <ImageView
-            android:id="@+id/bmtcLogo"
-            android:layout_width="0dp"
-            android:layout_height="75dp"
-            android:layout_gravity="right"
-            android:layout_weight="1"
-            android:contentDescription="@string/b_m_t_c_"
-            android:background="#eee"
-            android:src="@drawable/logo_7" />
-    </LinearLayout>
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/logo_7"
+        android:background="#ef6c00"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,80 +24,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#eee" >
+            android:background="#eee"
+            android:padding="16dp"
+            android:orientation="horizontal" >
 
-			<DigitalClock
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:textSize="20sp" />
-                      
+            <DigitalClock
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:textSize="20sp" />
+
             <TextView
-                android:id="@+id/passDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.6"
-                android:gravity="center"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#eee" >
-            
-            <TextView android:id="@+id/authKey"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.6"
-                android:gravity="center"
-                android:textSize="20sp" />
-            <TextView android:id="@+id/authValue"
+                android:id="@+id/authValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
                 android:gravity="center"
                 android:textSize="20sp" />
         </LinearLayout>
-         <TextView android:id="@+id/ticketNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="#fff"
-                android:background="#000" />
-
+        
         <ImageView
             android:id="@+id/profilePicture"
             android:layout_width="match_parent"
-            android:layout_height="215dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="175dp"
+            android:layout_margin="16dp"
             android:contentDescription="@string/profile_picture" />
 
         <TextView
-            android:id="@+id/NameOnCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <LinearLayout
+            android:id="@+id/ticketNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#eee" >
+            android:padding="16dp"
+            android:background="#ef6c00"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/NameOnCard"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="#eee"
+            android:padding="16dp"
+            android:orientation="horizontal" >
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/valid_through_"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/validFromDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/validString"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"  />
 
-            <TextView
-                android:id="@+id/validToDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+       </LinearLayout>
+        
+        
+        
     </LinearLayout>
 
 </LinearLayout>

@@ -1,11 +1,12 @@
 package com.cleartrip.bmtc;
 
 import java.io.File;
-
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.ImageView;
@@ -15,24 +16,23 @@ public class DisplayPassActivity extends Activity {
 	
 	private ImageView picture,  passTypePicture;
 	private TextView name;
-	private TextView validFromDate, validToDate;
+	private TextView validityString;
 	private TextView passType, authKey, authValue, ticketNumber;
 	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_pass);
 		picture = (ImageView) findViewById(R.id.profilePicture);
 		name = (TextView) findViewById(R.id.NameOnCard);
 		passType = (TextView)findViewById(R.id.passDescription);
-		authKey = (TextView)findViewById(R.id.authKey);
 		authValue = (TextView)findViewById(R.id.authValue);
 		ticketNumber = (TextView)findViewById(R.id.ticketNumber);
-		validFromDate = (TextView) findViewById(R.id.validFromDate);
-		validToDate = (TextView) findViewById(R.id.validToDate);
-		validFromDate.setText("valid from: 1/11/2014 ");
-		validToDate.setText("valid till: 31/11/2014");
+		validityString = (TextView) findViewById(R.id.validString);
+		validityString.setText("Nov 1, 2014  to Nov 31, 2014");
 		
-		authKey.setText("Auth-Key: ");
+		getActionBar().hide();
+		
 		authValue.setText("127790");
 		ticketNumber.setText("CLMT111400123");
 		File file = new File(Environment.getExternalStorageDirectory(),"temporary_holder.jpg");

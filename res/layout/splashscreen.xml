@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ef6c00"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/splash_bmtc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/logo_7"
+        android:text="@string/b_m_t_c"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="35sp"
+        android:visibility="gone"
+        
+         />
+
+    <TextView
+        android:id="@+id/splash_cleartrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_bmtc"
+        android:drawableBottom="@drawable/cleartrip_logo"
+        android:text="@string/powered_by"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:visibility="gone"
+         />
+    
+</RelativeLayout>
