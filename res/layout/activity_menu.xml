@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#455ede" >
+
+    <Button
+        android:id="@+id/buyPass"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/displayPass"
+        android:layout_below="@+id/displayPass"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/button1"
+        android:text="@string/buy_a_new_pass" />
+
+    <Button
+        android:id="@+id/displayPass"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/button1"
+        android:text="@string/display_existing_pass" />
+
+</RelativeLayout>

@@ -42,7 +42,7 @@ public class SplashScreenActivity extends Activity implements AnimationListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Intent intent= new Intent(this, RegisterActivity.class);
+			Intent intent= new Intent(this, MenuActivity.class);
 			startActivity(intent);
 			finish();
 		}else{
