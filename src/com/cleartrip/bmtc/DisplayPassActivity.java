@@ -13,26 +13,42 @@ import android.widget.TextView;
 
 public class DisplayPassActivity extends Activity {
 	
-	private ImageView picture;
+	private ImageView picture,  passTypePicture;
 	private TextView name;
 	private TextView validFromDate, validToDate;
-	private TextView passType;
+	private TextView passType, authKey, authValue, ticketNumber;
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_pass);
 		picture = (ImageView) findViewById(R.id.profilePicture);
 		name = (TextView) findViewById(R.id.NameOnCard);
+		passType = (TextView)findViewById(R.id.passDescription);
+		authKey = (TextView)findViewById(R.id.authKey);
+		authValue = (TextView)findViewById(R.id.authValue);
+		ticketNumber = (TextView)findViewById(R.id.ticketNumber);
 		validFromDate = (TextView) findViewById(R.id.validFromDate);
 		validToDate = (TextView) findViewById(R.id.validToDate);
-		validFromDate.setText("1/11/2014");
-		validToDate.setText("31/11/2014");
+		validFromDate.setText("valid from: 1/11/2014 ");
+		validToDate.setText("valid till: 31/11/2014");
+		
+		authKey.setText("Auth-Key: ");
+		authValue.setText("127790");
+		ticketNumber.setText("CLMT111400123");
 		File file = new File(Environment.getExternalStorageDirectory(),"temporary_holder.jpg");
 		decodeFile(file.getAbsolutePath());
 		
 		if (getIntent() != null && getIntent().getExtras() != null) {
 			name.setText(getIntent().getStringExtra("name"));
-			//passType.setText(getIntent().getStringExtra("passType"));
+			String type = getIntent().getStringExtra("passType");
+			if(type!=null){
+				switch (type){
+				case "1":
+					//passTypePicture.setImageResource(R.drawable.vajraservices);
+					passType.setText("Vajra A/c Bus Pass");
+					break;
+				}
+			}
 		}
 		
 	}

@@ -90,7 +90,7 @@ public class RegisterActivity extends ActionBarActivity implements OnClickListen
 		case R.id.submitApplication:
 			Intent intent = new Intent(this, DisplayPassActivity.class);
 			intent.putExtra("name", ((TextView)findViewById(R.id.nameValue)).getText().toString());
-			intent.putExtra("passType", "Vajra A/C bus pass");
+			intent.putExtra("passType", "1");
 			startActivity(intent);
 			Toast.makeText(this,"Application Submitted",
 					Toast.LENGTH_SHORT).show();
