@@ -2,27 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#455ede" >
+    android:background="#fff"
+    android:orientation="vertical" >
 
-    <Button
+    <TextView
         android:id="@+id/buyPass"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/displayPass"
-        android:layout_below="@+id/displayPass"
-        android:layout_marginTop="42dp"
-        android:background="@drawable/button1"
-        android:text="@string/buy_a_new_pass" />
-
-    <Button
-        android:id="@+id/displayPass"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp"
-        android:background="@drawable/button1"
-        android:text="@string/display_existing_pass" />
+        android:layout_marginTop="126dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="center"
+        android:layout_marginRight="25dp"
+        android:text="@string/buy_pass"
+        android:textColor="#fff"
+        android:padding="16dp"
+        android:background="@drawable/text1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/displayPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buyPass"
+        android:layout_alignRight="@+id/buyPass"
+        android:layout_below="@+id/buyPass"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/text1"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/display_pass"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ef6c00"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/splash_bmtc"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableTop="@drawable/logo_7"
-        android:text="@string/b_m_t_c"
-        android:gravity="center"
-        android:textColor="#ffffff"
-        android:textSize="35sp"
-        android:visibility="gone"
-        
-         />
+        android:orientation="horizontal"
+        android:alpha="0.6" >
 
-    <TextView
-        android:id="@+id/splash_cleartrip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/splash_bmtc"
-        android:drawableBottom="@drawable/cleartrip_logo"
-        android:text="@string/powered_by"
-        android:gravity="center"
-        android:textColor="#ffffff"
-        android:textSize="25sp"
-        android:visibility="gone"
-         />
-    
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bmtc_log" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/splash_bmtc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/b_m_t_c"
+                android:textColor="#ffffff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/splash_cleartrip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/cleartrip_logo_emails"
+            android:gravity="bottom"
+            android:text="@string/powered_by"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="407dp"
+        android:layout_height="407dp"
+        android:src="@drawable/bmtc_office_crop" />
+
+</LinearLayout>

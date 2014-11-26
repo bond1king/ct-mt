@@ -2,19 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/passDescription"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/logo_7"
-        android:background="#ef6c00"
-        android:textColor="#ffffff"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ef6c00"
+            android:src="@drawable/logo_7" />
+
+        <TextView
+            android:id="@+id/passDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ef6c00"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,10 +35,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#eee"
-            android:padding="16dp"
+            android:background="#FFFFFF"
             android:orientation="horizontal" >
 
+            <ImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/profile_picture" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/NameOnCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/mobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:padding="16dp" >
+            
             <DigitalClock
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -39,59 +83,44 @@
                 android:id="@+id/authValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.6"
+                android:layout_weight="0.38"
+                android:background="@drawable/border"
                 android:gravity="center"
                 android:textSize="20sp" />
         </LinearLayout>
-        
-        <ImageView
-            android:id="@+id/profilePicture"
-            android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/profile_picture" />
 
         <TextView
-            android:id="@+id/ticketNumber"
+            android:id="@+id/validString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:background="#ef6c00"
-            android:gravity="center"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+			android:gravity="center"
+            android:padding="8dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/NameOnCard"
-            android:padding="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#eee"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-        
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:background="#eee"
-            android:padding="16dp"
-            android:orientation="horizontal" >
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/valid_through_"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal" 
+            android:background="#fff">
 
             <TextView
-                android:id="@+id/validString"
-                android:layout_width="fill_parent"
+                android:id="@+id/ticketNumber"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"  />
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:textColor="#000"
+                android:textSize="20sp" />
 
-       </LinearLayout>
-        
-        
-        
+            <ImageView
+                android:id="@+id/barcode"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

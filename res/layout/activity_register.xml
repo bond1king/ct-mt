@@ -9,8 +9,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/errorString"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:textColor="#ff0000"
+            android:textSize="12sp"
+            />
         
-        <RadioGroup
+        <TextView
+            android:id="@+id/passTypes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select pass type"
+            android:padding="16dp"
+            android:textSize="17sp" >
+            
+        </TextView>        
+  <!--       <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -28,33 +46,42 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/parisaravahini_non_a_c_bus_pass" />
-        </RadioGroup>
+        </RadioGroup> -->
 
-        <TextView
-            android:id="@+id/setProfilePictureText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/set_photo"
-            android:textSize="17sp" />
-
-        <ImageView
-            android:id="@+id/setProfilePicture"
+        <RelativeLayout
+            android:id="@+id/profilePictureLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/setprofilepicture"
-            android:maxHeight="120dp"
-            android:maxWidth="80dp"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:layout_height="wrap_content" >
 
-      <!--   <TextView
+            <ImageView
+                android:id="@+id/setProfilePicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/setprofilepicture"
+                android:maxHeight="120dp"
+                android:maxWidth="80dp" />
+
+            <TextView
+                android:id="@+id/setProfilePictureText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="false"
+                android:hint="@string/set_photo"
+                android:padding="16dp"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+        <!--
+             <TextView
             android:id="@+id/nameField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
-            android:textSize="17sp" /> -->
+            android:textSize="17sp" />
+        -->
 
         <EditText
             android:id="@+id/nameValue"
@@ -62,46 +89,53 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/name"
-            android:inputType="textPersonName" >
+            android:inputType="textPersonName"
+            android:padding="16dp" >
 
         </EditText>
 
-        <!--  <TextView
+        <!--
+              <TextView
             android:id="@+id/addressField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/address"
-            android:textSize="17sp" /> -->
+            android:textSize="17sp" />
+        -->
 
         <EditText
             android:id="@+id/addressValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="@string/address"
-            android:inputType="textPostalAddress" />
+            android:inputType="textPostalAddress"
+            android:padding="16dp" />
 
-       <!--  <TextView
+        <!--
+             <TextView
             android:id="@+id/genderField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/gender"
-            android:textSize="17sp" /> -->
-            
+            android:textSize="17sp" />
+        -->
 
         <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:padding="16dp" >
 
             <RadioButton
                 android:id="@+id/radioButtonFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="0.5"
                 android:text="@string/female" />
 
@@ -109,6 +143,7 @@
                 android:id="@+id/radioButtonMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
                 android:layout_weight="0.5"
                 android:text="@string/male" />
         </RadioGroup>
@@ -119,36 +154,42 @@
             android:onClick="showDatePickerDialog"
             android:orientation="vertical" >
 
-         <!--    <TextView
+            <!--
+                 <TextView
                 android:id="@+id/dateOfBirthField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/date_of_birth"
-                android:textSize="17sp" /> -->
-                
+                android:textSize="17sp" />
+            -->
+
             <TextView
                 android:id="@+id/dateOfBirthValue"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
                 android:hint="@string/date_of_birth"
-                android:gravity="center" />
+                android:padding="16dp"
+                android:textSize="17sp" />
+
         </LinearLayout>
 
-      <!--   <TextView
+        <!--
+             <TextView
             android:id="@+id/mobileNumberField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/mobile_number"
-            android:textSize="17sp" /> -->
+            android:textSize="17sp" />
+        -->
 
         <TextView
             android:id="@+id/mobileNumberText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:padding="16dp"
             android:visibility="gone" />
 
         <EditText
@@ -157,7 +198,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/mobile_number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:padding="16dp" />
 
         <Button
             android:id="@+id/submitApplication"
@@ -165,6 +207,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:padding="16dp"
             android:text="@string/submit_application" />
     </LinearLayout>
 
